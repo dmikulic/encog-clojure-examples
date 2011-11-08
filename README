@@ -1,0 +1,5 @@
+Hello world examples for Encog 3 in Clojure
+
+Feedforward Neural Network (Perceptron)
+  * Backpropagation
+  * Resilient Propagation
