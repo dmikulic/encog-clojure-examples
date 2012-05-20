@@ -15,25 +15,17 @@ user=> (load "encog_clojure_examples/rpropnnd")
 user=> (in-ns 'encog_clojure_examples.rpropnnd)
 ```
 
-<code>rpropnnd</code> contains functions to create a neural network with predefined defaults (activation function, training)
+<code>rpropnnd</code> contains functions to create a neural network with predefined properties (activation function, training)
+
 
 ```clj
-(def XOR_INPUT [[0.0 0.0] [1.0 0.0] [0.0 1.0] [1.0 1.0]])
-(def XOR_IDEAL [[0.0] [1.0] [1.0] [0.0]])
+user=> (def XOR_INPUT [[0.0 0.0] [1.0 0.0] [0.0 1.0] [1.0 1.0]])
+user=> (def XOR_IDEAL [[0.0] [1.0] [1.0] [0.0]])
 
-(def training-set (make-training-set XOR_INPUT XOR_IDEAL))
-(def network (make-network 2 10 20 10 1))
+user=> (def training-set (make-training-set XOR_INPUT XOR_IDEAL))
+user=> (def network (make-network 2 10 20 10 1))
 
-(train network training-set)
-
-(doseq [x XOR_INPUT] (print-result network x))
-```
-
-<code>make-network (num of neurons on layer 1) (num of neurons on layer 2) ...</code>  
-
-Output:
-```clj
-;; training
+user=> (train network training-set)
 Epoch # 1  Error: 0.365003463818111
 Epoch # 2  Error: 0.3432473243463201
 Epoch # 3  Error: 0.25168279151848605
@@ -57,14 +49,15 @@ Epoch # 20  Error: 0.015202982302549939
 Epoch # 21  Error: 0.006746934061242
 nil
 
-
-;; test
+user=> (doseq [x XOR_INPUT] (print-result network x))
 [0.0 0.0]  -->  (0.028933765611090848)
 [1.0 0.0]  -->  (0.9257828848999123)
 [0.0 1.0]  -->  (0.9894454891912495)
 [1.0 1.0]  -->  (0.043607393890605715)
 nil
 ```
+
+<code>make-network (num of neurons on layer 1) (num of neurons on layer 2) ...</code>  
 
 
 ## License
