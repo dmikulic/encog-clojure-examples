@@ -8,14 +8,14 @@ Feedforward Neural Network (Perceptron)
 
 ## Usage
 
-lein repl
+<code>lein repl</code>
 
 ```clj
 user=> (load "encog_clojure_examples/rpropnnd")
 user=> (in-ns 'encog_clojure_examples.rpropnnd)
 ```
 
-rpropnnd contains functions to create a neural network with predefined defaults (activation function, training type)
+<code>rpropnnd</code> contains functions to create a neural network with predefined defaults (activation function, training)
 
 ```clj
 (def XOR_INPUT [[0.0 0.0] [1.0 0.0] [0.0 1.0] [1.0 1.0]])
@@ -29,8 +29,41 @@ rpropnnd contains functions to create a neural network with predefined defaults 
 (doseq [x XOR_INPUT] (print-result network x))
 ```
 
+<code>make-network (num of neurons on layer 1) (num of neurons on layer 2) ...</code>  
+
 Output:
 ```clj
+;; training
+Epoch # 1  Error: 0.365003463818111
+Epoch # 2  Error: 0.3432473243463201
+Epoch # 3  Error: 0.25168279151848605
+Epoch # 4  Error: 0.2821308623821046
+Epoch # 5  Error: 0.25265135059601135
+Epoch # 6  Error: 0.2365839166284867
+Epoch # 7  Error: 0.24056300558822408
+Epoch # 8  Error: 0.2238483037368802
+Epoch # 9  Error: 0.21469238494639312
+Epoch # 10  Error: 0.20547367105629846
+Epoch # 11  Error: 0.19104940839020834
+Epoch # 12  Error: 0.1789146430396987
+Epoch # 13  Error: 0.1570771456919285
+Epoch # 14  Error: 0.1345197078305611
+Epoch # 15  Error: 0.10975405826293298
+Epoch # 16  Error: 0.08706495681604509
+Epoch # 17  Error: 0.06467544724710089
+Epoch # 18  Error: 0.04574833236926629
+Epoch # 19  Error: 0.029237035270946333
+Epoch # 20  Error: 0.015202982302549939
+Epoch # 21  Error: 0.006746934061242
+nil
+
+
+;; test
+[0.0 0.0]  -->  (0.028933765611090848)
+[1.0 0.0]  -->  (0.9257828848999123)
+[0.0 1.0]  -->  (0.9894454891912495)
+[1.0 1.0]  -->  (0.043607393890605715)
+nil
 ```
 
 
