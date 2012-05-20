@@ -1,0 +1,41 @@
+# encog-clojure-examples
+
+Hello world examples for Encog 3 in Clojure
+
+Feedforward Neural Network (Perceptron)
+  * Backpropagation
+  * Resilient Propagation
+
+## Usage
+
+lein repl
+
+```clj
+user=> (load "encog_clojure_examples/rpropnnd")
+user=> (in-ns 'encog_clojure_examples.rpropnnd)
+```
+
+rpropnnd contains functions to create a neural network with predefined defaults (activation function, training type)
+
+```clj
+(def XOR_INPUT [[0.0 0.0] [1.0 0.0] [0.0 1.0] [1.0 1.0]])
+(def XOR_IDEAL [[0.0] [1.0] [1.0] [0.0]])
+
+(def training-set (make-training-set XOR_INPUT XOR_IDEAL))
+(def network (make-network 2 10 20 10 1))
+
+(train network training-set)
+
+(doseq [x XOR_INPUT] (print-result network x))
+```
+
+Output:
+```clj
+```
+
+
+## License
+
+Copyright (C) 2011 Darko Mikulic
+
+Distributed under the Eclipse Public License, the same as Clojure.
